@@ -1,0 +1,15 @@
+/Users/sadin/Projects/Courses/CSharpFullCourse/Projects/gradebook/src/GradeBook/bin/Debug/net5.0/GradeBook.deps.json
+/Users/sadin/Projects/Courses/CSharpFullCourse/Projects/gradebook/src/GradeBook/bin/Debug/net5.0/GradeBook.runtimeconfig.json
+/Users/sadin/Projects/Courses/CSharpFullCourse/Projects/gradebook/src/GradeBook/bin/Debug/net5.0/GradeBook.runtimeconfig.dev.json
+/Users/sadin/Projects/Courses/CSharpFullCourse/Projects/gradebook/src/GradeBook/bin/Debug/net5.0/GradeBook.dll
+/Users/sadin/Projects/Courses/CSharpFullCourse/Projects/gradebook/src/GradeBook/bin/Debug/net5.0/ref/GradeBook.dll
+/Users/sadin/Projects/Courses/CSharpFullCourse/Projects/gradebook/src/GradeBook/bin/Debug/net5.0/GradeBook.pdb
+/Users/sadin/Projects/Courses/CSharpFullCourse/Projects/gradebook/src/GradeBook/obj/Debug/net5.0/GradeBook.csproj.AssemblyReference.cache
+/Users/sadin/Projects/Courses/CSharpFullCourse/Projects/gradebook/src/GradeBook/obj/Debug/net5.0/GradeBook.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sadin/Projects/Courses/CSharpFullCourse/Projects/gradebook/src/GradeBook/obj/Debug/net5.0/GradeBook.AssemblyInfoInputs.cache
+/Users/sadin/Projects/Courses/CSharpFullCourse/Projects/gradebook/src/GradeBook/obj/Debug/net5.0/GradeBook.AssemblyInfo.cs
+/Users/sadin/Projects/Courses/CSharpFullCourse/Projects/gradebook/src/GradeBook/obj/Debug/net5.0/GradeBook.csproj.CoreCompileInputs.cache
+/Users/sadin/Projects/Courses/CSharpFullCourse/Projects/gradebook/src/GradeBook/obj/Debug/net5.0/GradeBook.dll
+/Users/sadin/Projects/Courses/CSharpFullCourse/Projects/gradebook/src/GradeBook/obj/Debug/net5.0/ref/GradeBook.dll
+/Users/sadin/Projects/Courses/CSharpFullCourse/Projects/gradebook/src/GradeBook/obj/Debug/net5.0/GradeBook.pdb
+/Users/sadin/Projects/Courses/CSharpFullCourse/Projects/gradebook/src/GradeBook/obj/Debug/net5.0/GradeBook.genruntimeconfig.cache
