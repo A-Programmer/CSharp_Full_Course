@@ -1,17 +1,18 @@
 # C# Full Course
 ### Table of Contents
+** Each number is a complete course 
 
 1. **Fundamentals**
-    1. Course Overview
-    2. Introducing C# and .NET
-    3. Learning C#
-    4. Working with Classes and Objects
-    5. Testing Your Code
-    6. _Working with Reference Types and Value Types_ -- Recording ...
-    7. Controlling the Flow of Execution
-    8. Building Types
-    9. Object Oriented Programming with C#
-    10. Last Words
+    * Course Overview
+    * Introducing C# and .NET
+    * Learning C#
+    * Working with Classes and Objects
+    * Testing Your Code
+    * _Working with Reference Types and Value Types_ -- **&#128247; Recording ...**
+    * Controlling the Flow of Execution
+    * Building Types
+    * Object Oriented Programming with C#
+    * Last Words
 2. **Beginning C# Collections**
 3. **Working with Nulls in C#**
 4. **Object Oriented Programming**
