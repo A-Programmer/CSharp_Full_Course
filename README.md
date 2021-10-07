@@ -7,7 +7,7 @@
     3. Learning C#
     4. Working with Classes and Objects
     5. Testing Your Code
-    6. _Working with Reference Types and Value Types_ Recording ...
+    6. _Working with Reference Types and Value Types_ -- Recording ...
     7. Controlling the Flow of Execution
     8. Building Types
     9. Object Oriented Programming with C#
