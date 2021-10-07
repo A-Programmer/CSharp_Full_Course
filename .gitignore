@@ -107,7 +107,7 @@ temp/
 
 #### Build results
 
-# Common Project
+# GradeBook Project
 src/GradeBook/.vs/
 src/GradeBook/.code/
 src/GradeBook/.vscode/
@@ -122,6 +122,22 @@ src/GradeBook/[Rr]eleases/
 src/GradeBook/[Rr]elease/
 src/GradeBook/[Dd]ebugPublic/
 src/GradeBook/[Dd]ebug/
+
+# GradeBook.Tests Project
+tests/GradeBook.Tests/.vs/
+tests/GradeBook.Tests/.code/
+tests/GradeBook.Tests/.vscode/
+tests/GradeBook.Tests/[Oo]ut/
+tests/GradeBook.Tests/[Oo]bj/
+tests/GradeBook.Tests/[Bb]in/
+tests/GradeBook.Tests/bld/
+tests/GradeBook.Tests/build/
+tests/GradeBook.Tests/x86/
+tests/GradeBook.Tests/x64/
+tests/GradeBook.Tests/[Rr]eleases/
+tests/GradeBook.Tests/[Rr]elease/
+tests/GradeBook.Tests/[Dd]ebugPublic/
+tests/GradeBook.Tests/[Dd]ebug/
 
 ## others
 [Dd]ebug/
