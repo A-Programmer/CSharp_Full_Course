@@ -3,11 +3,10 @@
 ** Each number is a complete course 
 
 1. **Fundamentals**
-    * Course Overview
-    * Introducing C# and .NET
-    * Learning C#
-    * Working with Classes and Objects
-    * Testing Your Code
+    * [Introducing C# and .NET](https://youtu.be/YkI4Ml5iVZU)
+    * [Learning the C# Syntax](https://youtu.be/cG69eE4GIJI)
+    * [Working with Classes and Objects](https://youtu.be/AcBxq7pubv0)
+    * [Testing Your Code](https://youtu.be/6epmTk7SE3A)
     * _Working with Reference Types and Value Types_ -- **&#128247; Recording ...**
     * Controlling the Flow of Execution
     * Building Types
