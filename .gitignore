@@ -107,6 +107,39 @@ temp/
 
 #### Build results
 
+# C# Fundamentals
+## GradeBook Project
+01. C# Fundamentals/src/GradeBook/.vs/
+01. C# Fundamentals/src/GradeBook/.code/
+01. C# Fundamentals/src/GradeBook/.vscode/
+01. C# Fundamentals/src/GradeBook/[Oo]ut/
+01. C# Fundamentals/src/GradeBook/[Oo]bj/
+01. C# Fundamentals/src/GradeBook/[Bb]in/
+01. C# Fundamentals/src/GradeBook/bld/
+01. C# Fundamentals/src/GradeBook/build/
+01. C# Fundamentals/src/GradeBook/x86/
+01. C# Fundamentals/src/GradeBook/x64/
+01. C# Fundamentals/src/GradeBook/[Rr]eleases/
+01. C# Fundamentals/src/GradeBook/[Rr]elease/
+01. C# Fundamentals/src/GradeBook/[Dd]ebugPublic/
+01. C# Fundamentals/src/GradeBook/[Dd]ebug/
+
+## GradeBook.Tests Project
+01. C# Fundamentals/tests/GradeBook.Tests/.vs/
+01. C# Fundamentals/tests/GradeBook.Tests/.code/
+01. C# Fundamentals/tests/GradeBook.Tests/.vscode/
+01. C# Fundamentals/tests/GradeBook.Tests/[Oo]ut/
+01. C# Fundamentals/tests/GradeBook.Tests/[Oo]bj/
+01. C# Fundamentals/tests/GradeBook.Tests/[Bb]in/
+01. C# Fundamentals/tests/GradeBook.Tests/bld/
+01. C# Fundamentals/tests/GradeBook.Tests/build/
+01. C# Fundamentals/tests/GradeBook.Tests/x86/
+01. C# Fundamentals/tests/GradeBook.Tests/x64/
+01. C# Fundamentals/tests/GradeBook.Tests/[Rr]eleases/
+01. C# Fundamentals/tests/GradeBook.Tests/[Rr]elease/
+01. C# Fundamentals/tests/GradeBook.Tests/[Dd]ebugPublic/
+01. C# Fundamentals/tests/GradeBook.Tests/[Dd]ebug/
+
 # GradeBook Project
 src/GradeBook/.vs/
 src/GradeBook/.code/
