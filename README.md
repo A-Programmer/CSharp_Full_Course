@@ -1,6 +1,14 @@
 # C# Full Course
+
+**Each number is a complete course which contains sessions.**  
+I needed to review C# from beginning to advanced and I thought it would be a good idea to record each session and share with other programmers, this repository contains courses projects.  
+So you can find all sessions on my [Youtube channel](https://www.youtube.com/watch?v=YkI4Ml5iVZU&list=PLYhArLpz29AF8jyjGgMcDn-xgmjgwhJvg) or click on each item in below list to watch each session individually.  
+**__This list will update every time I publish a new video on Youtube.__**
+___
+
+
+
 ### Table of Contents
-** Each number is a complete course 
 
 1. **Fundamentals**
     * [Introducing C# and .NET](https://youtu.be/YkI4Ml5iVZU)
