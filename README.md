@@ -15,9 +15,9 @@ ___
     * [Learning the C# Syntax](https://youtu.be/cG69eE4GIJI)
     * [Working with Classes and Objects](https://youtu.be/AcBxq7pubv0)
     * [Testing Your Code](https://youtu.be/6epmTk7SE3A)
-    * _Working with Reference Types and Value Types_ -- **&#128247; Recording ...**
-    * Controlling the Flow of Execution
-    * Building Types
+    * [Working with Reference Types and Value Types](https://www.youtube.com/watch?v=RDmNJnbVgPQ)
+    * [Controlling the Flow of Execution](https://www.youtube.com/watch?v=puddgcugJZ4)
+    * _Building Types_ -- **&#128247; Recording ...**
     * Object Oriented Programming with C#
     * Last Words
 2. **Beginning C# Collections**
