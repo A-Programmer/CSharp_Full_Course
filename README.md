@@ -17,8 +17,8 @@ ___
     * [Testing Your Code](https://youtu.be/6epmTk7SE3A)
     * [Working with Reference Types and Value Types](https://www.youtube.com/watch?v=RDmNJnbVgPQ)
     * [Controlling the Flow of Execution](https://www.youtube.com/watch?v=puddgcugJZ4)
-    * _Building Types_ -- **&#128247; Recording ...**
-    * Object Oriented Programming with C#
+    * [Building Types](https://www.youtube.com/watch?v=ALDlPP9Kkb0)
+    * _Object Oriented Programming with C#_ -- **&#128247; Recording ...**
     * Last Words
 2. **Beginning C# Collections**
 3. **Working with Nulls in C#**

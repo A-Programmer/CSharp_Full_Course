@@ -9,6 +9,7 @@ namespace GradeBook
         {
 
             Book book1 = new Book("Kamran Sadin");
+            book1.GradeAdded += OnGradeAdded;
 
             
             while(true)
@@ -24,6 +25,7 @@ namespace GradeBook
                 {
                     var grade = double.Parse(input);
                     book1.AddGrade(grade);
+                    book1.AddGrade('F');
                 }
                 catch(FormatException ex)
                 {
@@ -44,10 +46,18 @@ namespace GradeBook
 
             var stats = book1.GetStats();
 
+            Console.WriteLine($"The book name is {book1.Name}");
+
+            Console.WriteLine(Book.CATEGORY);
             Console.WriteLine($"The highest grade is {stats.High}");
             Console.WriteLine($"The lowest grade is {stats.Low}");
             Console.WriteLine($"The average is {stats.Average:N2}");
             Console.WriteLine($"The letter is {stats.Letter}");
+        }
+
+        static void OnGradeAdded(object sender, EventArgs e)
+        {
+            Console.WriteLine("Grade added to book1");
         }
     }
 }
