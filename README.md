@@ -18,8 +18,8 @@ ___
     * [Working with Reference Types and Value Types](https://www.youtube.com/watch?v=RDmNJnbVgPQ)
     * [Controlling the Flow of Execution](https://www.youtube.com/watch?v=puddgcugJZ4)
     * [Building Types](https://www.youtube.com/watch?v=ALDlPP9Kkb0)
-    * _Object Oriented Programming with C#_ -- **&#128247; Recording ...**
-    * Last Words
+    * [Object Oriented Programming with C#](https://www.youtube.com/watch?v=nBwknnoUABk)
+    * _Last Words_ -- **&#128247; Recording ...**
 2. **Beginning C# Collections**
 3. **Working with Nulls in C#**
 4. **Object Oriented Programming**
