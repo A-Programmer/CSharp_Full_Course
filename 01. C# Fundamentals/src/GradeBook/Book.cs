@@ -81,10 +81,11 @@ namespace GradeBook
     }
 
     public delegate void GradeAddedDelegate(object sender, EventArgs args);
-    public class BookInMemory : Book
+    public class InMemoryBook : Book
     {
-        public BookInMemory(string name) : base(name)
+        public InMemoryBook(string name) : base(name)
         {
+            grades = new List<double>();
         }
 
         public void AddGrade(char letter)
