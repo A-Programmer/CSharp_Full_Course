@@ -19,8 +19,17 @@ ___
     * [Controlling the Flow of Execution](https://www.youtube.com/watch?v=puddgcugJZ4)
     * [Building Types](https://www.youtube.com/watch?v=ALDlPP9Kkb0)
     * [Object Oriented Programming with C#](https://www.youtube.com/watch?v=nBwknnoUABk)
-    * _Last Words_ -- **&#128247; Recording ...**
+    * [Last Words](https://www.youtube.com/watch?v=9i8ck7yDAAI)
 2. **Beginning C# Collections**
+    * [Course Overview](https://www.youtube.com/watch?v=87pttSQUJlU)  
+    * [Introducing Collections and Arrays](https://www.youtube.com/watch?v=FWK8CnW9Vx4)  
+    * _Importing from a Data Source into an Array_ -- **&#128247; Recording ...**  
+    * Resizing Collections with Lists
+    * Storing Keyed Data with Dictionaries
+    * Manipulating List Data
+    * Selecting Items Using LINQ
+    * Creating Collections of Collections
+    * Taking Collections Further
 3. **Working with Nulls in C#**
 4. **Object Oriented Programming**
 5. **Dates and Times in .NET**
