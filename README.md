@@ -23,9 +23,9 @@ ___
 2. **Beginning C# Collections**
     * [Course Overview](https://www.youtube.com/watch?v=87pttSQUJlU)  
     * [Introducing Collections and Arrays](https://www.youtube.com/watch?v=FWK8CnW9Vx4)  
-    * _Importing from a Data Source into an Array_ -- **&#128247; Recording ...**  
-    * Resizing Collections with Lists
-    * Storing Keyed Data with Dictionaries
+    * [Importing from a Data Source into an Array](https://www.youtube.com/watch?v=T8idRH_VUvw)
+    * [Resizing Collections with Lists](https://www.youtube.com/watch?v=Y_1MeUaPVGg)
+    * _Storing Keyed Data with Dictionaries_ -- **&#128247; Recording ...** 
     * Manipulating List Data
     * Selecting Items Using LINQ
     * Creating Collections of Collections
