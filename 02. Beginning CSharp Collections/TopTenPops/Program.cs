@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace TopTenPops
 {
@@ -10,14 +11,22 @@ namespace TopTenPops
 
             CsvReader reader = new CsvReader(filePath);
 
-            Country[] countries = reader.ReadFirstNCountries(10);
+            List<Country> countries = reader.ReadAllCountries();
 
-            foreach(Country country in countries)
+            var myCountry = new Country("My Country", "MYC", 100_000_000);
+
+            int index = countries.FindIndex(x => x.Population > 80_000_000);
+            countries.Insert(index, myCountry);
+            countries.RemoveAt(index);
+
+            foreach (Country country in countries)
             {
                 Console.WriteLine(
                         $"{PopulationFormatter.FormatPopulation(country.Population).PadLeft(15)}: {country.Name}"
                     );
             }
+
+            Console.WriteLine($"{countries.Count} Countries.");
         }
     }
 }

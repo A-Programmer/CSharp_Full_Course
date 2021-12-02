@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace TopTenPops
@@ -12,19 +13,19 @@ namespace TopTenPops
             this._csvFilePath = csvFilePath;
         }
 
-        public Country[] ReadFirstNCountries(int nCountries)
+        public List<Country> ReadAllCountries()
         {
-            Country[] countries = new Country[nCountries];
+            List<Country> countries = new List<Country>();
 
             using (StreamReader sr = new StreamReader(_csvFilePath))
             {
                 //Read the header line
                 sr.ReadLine();
 
-                for (int i = 0; i < nCountries; i++)
+                string csvLine;
+                while((csvLine = sr.ReadLine()) != null)
                 {
-                    string csvLine = sr.ReadLine();
-                    countries[i] = ReadCountryFromCsvLine(csvLine);
+                    countries.Add(ReadCountryFromCsvLine(csvLine));
                 }
             }
 
@@ -35,9 +36,28 @@ namespace TopTenPops
         {
             //Name, Code, 888888
             string[] parts = csvLine.Split(new char[] { ',' } );
-            string name = parts[0];
-            string code = parts[1];
-            int population = int.Parse(parts[2]);
+
+            string name;
+            string code;
+            string populationText;
+            switch (parts.Length)
+            {
+                case 3:
+                    name = parts[0];
+                    code = parts[1];
+                    populationText = parts[2];
+                    break;
+                case 4:
+                    name = parts[0] + ", " + parts[1];
+                    name = name.Replace("\"", null).Trim();
+                    code = parts[2];
+                    populationText = parts[3];
+                    break;
+                default:
+                    throw new Exception($"Can't parse country from csvLine: {csvLine}");
+            }
+
+            int.TryParse(populationText, out int population);
 
             return new Country(name, code, population);
         }
