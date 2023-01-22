@@ -93,6 +93,20 @@ src/.vscode/
 *.userosscache
 *.sln.docstates
 
+**/.vs/
+**/.code/
+**/.vscode/
+**/[Oo]ut/
+**/[Oo]bj/
+**/[Bb]in/
+**/bld/
+**/build/
+**/x86/
+**/x64/
+**/[Rr]eleases/
+**/[Rr]elease/
+**/[Dd]ebugPublic/
+**/[Dd]ebug/
 ## published files
 dist/
 
