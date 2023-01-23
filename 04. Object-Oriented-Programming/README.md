@@ -63,3 +63,17 @@ Separation of concerns
 YAGNI Principle : You aren't going to need it.
 
 ## Establishing relationships between classes
+
+**Types of Repationships:**
+
+* Collaboration ("uses a")
+  * An object uses another object, like a CustomerRepository uses a Customer object to populate a retrive.
+* Composition ("has a")
+  * An object has another object, for example a Car has a motor, or an Order has a set of OrderItems and an Address
+    * Aggregates: When an object composed of multiple objects that can exist outside of the relashinship:
+      * An Order has a Customer, but a Customer can exist without the Order.
+    * Composition: Those relationships where the related objects don't otherwise exist. => The object owns its related objects, and if the object is destroyed, the related objects are also destroyed.
+      * And order has a set of OrderItems, the OrderItems have no context without an Order.
+* Inheritance ("is a")
+  * You know inheritance, Business Customer is a type of Customer, a Residential Customer is another Type of Customer.
+  * Inheritance prvides a mechanism for defining classes that are a more specialized version of another class.

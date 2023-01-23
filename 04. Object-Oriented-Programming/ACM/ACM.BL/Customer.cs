@@ -3,15 +3,19 @@ namespace ACM.BL;
 public class Customer
 {
     public Customer()
+        : this(0)
     {
-            
+        
     }
 
     public Customer(int customerId)
     {
         CustomerId = customerId;
+        AddessList = new();
     }
+    public List<Address> AddessList { get; set; }
     public int CustomerId { get; private set; }
+    public int CustomerType { get; set; }
     public int Age { get; set; }
     public static int InstanceCount { get; set; }
     private string _lastName;
