@@ -81,4 +81,35 @@ public class CustomerTests
 
         Assert.Equal(3, Customer.InstanceCount);
     }
+
+    [Fact]
+    public void ValidateValid()
+    {
+        Customer customer = new()
+        {
+            LastName = "Sadin",
+            EmailAddress = "MrSadin@Gmail.Com"
+        };
+
+        bool expected = true;
+
+        bool actual = customer.Validate();
+        
+        Assert.Equal(expected, actual);
+    }
+
+    [Fact]
+    public void ValidateMissingLastName()
+    {
+        Customer customer = new()
+        {
+            EmailAddress = "MrSadin@Gmail.Com"
+        };
+
+        bool expected = false;
+
+        bool actual = customer.Validate();
+        
+        Assert.Equal(expected, actual);
+    }
 }

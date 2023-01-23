@@ -2,6 +2,15 @@ namespace ACM.BL;
 
 public class Customer
 {
+    public Customer()
+    {
+            
+    }
+
+    public Customer(int customerId)
+    {
+        CustomerId = customerId;
+    }
     public int CustomerId { get; private set; }
     public int Age { get; set; }
     public static int InstanceCount { get; set; }
@@ -37,21 +46,15 @@ public class Customer
         }
     }
 
-    public void Test()
+    /// <summary>
+    /// Validates the customer data.
+    /// </summary>
+    public bool Validate()
     {
-        var customer1 = new Customer
-        {
-            FirstName = "Kamran",
-            Age = 34
-        };
-
-        var customer2 = customer1;
-
-        customer2.FirstName = "Amir";
-        customer2.Age = 30;
-
-        Console.WriteLine($"Customer1: First Name: {customer1.FirstName} and Age: {customer1.Age}\n\n\n");
-        Console.WriteLine($"Customer2: First Name: {customer2.FirstName} and Age: {customer2.Age}");
+        bool isValid = true;
+        if (string.IsNullOrWhiteSpace(LastName)) isValid = false;
+        if (string.IsNullOrWhiteSpace(EmailAddress)) isValid = false;
+        
+        return isValid;
     }
-    
 }
