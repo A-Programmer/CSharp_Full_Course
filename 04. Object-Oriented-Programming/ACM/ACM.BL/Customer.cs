@@ -61,4 +61,6 @@ public class Customer
         
         return isValid;
     }
+
+    public override string ToString() => FullName;
 }

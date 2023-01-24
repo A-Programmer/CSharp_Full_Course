@@ -77,3 +77,57 @@ YAGNI Principle : You aren't going to need it.
 * Inheritance ("is a")
   * You know inheritance, Business Customer is a type of Customer, a Residential Customer is another Type of Customer.
   * Inheritance prvides a mechanism for defining classes that are a more specialized version of another class.
+
+
+# Leveraging Reuse through Inheritance
+
+* Involves extracting commonality
+* Building reusable classes/components
+* Defining Interfaces
+
+#### **Secrets of Reuse:**
+
+* Build the functionality once
+* Test that functionality with unit tests.
+* Reuse it.
+* Update it in one place and retest it.
+
+Any class that we create, it is inheriting from Object base class.
+
+We can override inherited members of base classes (like ToString method).
+
+### Polymorphism:
+
+Is the concept that a single method, such as ToString method, can behave differently depending on the type of object that calls it. If the base class calls ToString, ToString displays the full class name. If an Order object calls ToString, it displays the order dat and the order id. If a customer object calls ToString, it displays Customer name and if the product object calls ToString, it displays the Product Name.
+
+#### So a method can have different shapes.
+
+When we decide to create a base class we have 2 choices: 1. Abstract class 2. Concrete Class
+
+| Abstract Class                                                        | Concrete Class                            |
+| --------------------------------------------------------------------- | ----------------------------------------- |
+| Incomplete, with at least one<br />property or method not implemented | Normal class                              |
+| Can not be instantiated (because it is incomplete)                    | Can be instantiated                       |
+| intended for use as a base class                                      | Can be used as a base class or on its own |
+| public abstract class                                                 | public class                              |
+
+### Sealed class:
+
+Is a class that can not be extended through inheritance. Sealing a class prevents extension and customization. If you build a class and want to ensure that no other classes extend or override its functionality, consider making it as sealed.
+
+
+By default class members are sealed and can not be overriden.
+
+**Expose members using:**
+
+* Abstract
+* Virtual
+
+When do we use which?
+
+| Abstract                                                                                                                                                     | Virtual                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------- |
+| Method signiture as place holder with no implementation<br />Use abstract if the base class defines the method, but has<br />no default code for the method. | Method with default implementation    |
+| Only use in abstract classes                                                                                                                                 | Use in abstract or concrete classes   |
+| Must be overriden by derived class                                                                                                                           | Optionally overriden by derived class |
+| public abstract bool Validate();                                                                                                                             | public virtual bool Validate()        |

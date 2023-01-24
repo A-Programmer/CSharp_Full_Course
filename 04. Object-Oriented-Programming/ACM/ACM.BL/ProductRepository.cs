@@ -15,6 +15,9 @@ public class ProductRepository
             product.ProductDescription = "Desc";
             product.CurrentPrice = 15.96M;
         }
+        Object myObject = new();
+        Console.WriteLine($"Object: {myObject.ToString()}");
+        Console.WriteLine($"Object: {product.ToString()}");
         return product;
     }
 
@@ -23,6 +26,25 @@ public class ProductRepository
     /// </summary>
     public bool Save(Product product)
     {
-        return true;
+        bool success = true;
+        if(product.HasChanges)
+        {
+            if(product.IsValid)
+            {
+                if(product.IsNew)
+                {
+                    // Call an Insert Stored Procedure
+                }
+                else
+                {
+                    // Call an Update Strored Procedure
+                }
+            }
+            else
+            {
+                success = false;
+            }
+        }
+        return success;
     }
 }
