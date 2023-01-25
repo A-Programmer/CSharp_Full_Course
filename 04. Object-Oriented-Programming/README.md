@@ -78,7 +78,6 @@ YAGNI Principle : You aren't going to need it.
   * You know inheritance, Business Customer is a type of Customer, a Residential Customer is another Type of Customer.
   * Inheritance prvides a mechanism for defining classes that are a more specialized version of another class.
 
-
 # Leveraging Reuse through Inheritance
 
 * Involves extracting commonality
@@ -115,7 +114,6 @@ When we decide to create a base class we have 2 choices: 1. Abstract class 2. Co
 
 Is a class that can not be extended through inheritance. Sealing a class prevents extension and customization. If you build a class and want to ensure that no other classes extend or override its functionality, consider making it as sealed.
 
-
 By default class members are sealed and can not be overriden.
 
 **Expose members using:**
@@ -131,3 +129,11 @@ When do we use which?
 | Only use in abstract classes                                                                                                                                 | Use in abstract or concrete classes   |
 | Must be overriden by derived class                                                                                                                           | Optionally overriden by derived class |
 | public abstract bool Validate();                                                                                                                             | public virtual bool Validate()        |
+
+# Building Reusable Components
+
+A static class is a class that can not be instantiated. That means there is no new keyword, because there is no instance we access the members of static classes using the class name.
+
+**Extension Method:**
+
+An extension method allows us to add methods to any existing type without the source code of the type, without inheritance, without recompiling, without any changes at all to the original type.

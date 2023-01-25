@@ -93,6 +93,7 @@ src/.vscode/
 *.userosscache
 *.sln.docstates
 
+**/.idea/
 **/.vs/
 **/.code/
 **/.vscode/
