@@ -1,6 +1,8 @@
+using ACM.Common;
+
 namespace ACM.BL;
 
-public class Order
+public class Order : EntityBase, ILoggable 
 {
     public Order() : this(0)
     {
@@ -19,7 +21,7 @@ public class Order
     public List<OrderItem> OrderItems { get; set; }
     public int ShippingAddressId { get; set; }
 
-    public bool Validate()
+    public override bool Validate()
     {
         bool isValid = true;
 
@@ -28,4 +30,7 @@ public class Order
         return isValid;
     }
     public override string ToString() => $"{OrderDate.Value.Date} ({OrderId})";
+
+    public string Log() =>
+        $"{OrderId}: Date: {this.OrderDate.Value.Date} Status: {this.EntityState.ToString()}";
 }

@@ -1,7 +1,7 @@
 using ACM.Common;
 
 namespace ACM.BL;
-public class Product : EntityBase
+public class Product : EntityBase, ILoggable
 {
     public Product()
     {
@@ -28,6 +28,9 @@ public class Product : EntityBase
             _productName = value;
         }
     }
+
+    public string Log() =>
+        $"{ProductId}: {ProductName} Details: {ProductDescription} Status: {EntityState.ToString()}";
 
     public override bool Validate()
     {

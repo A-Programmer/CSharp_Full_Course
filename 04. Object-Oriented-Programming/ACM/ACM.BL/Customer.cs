@@ -1,6 +1,8 @@
+using ACM.Common;
+
 namespace ACM.BL;
 
-public class Customer
+public class Customer : EntityBase, ILoggable
 {
     public Customer()
         : this(0)
@@ -50,10 +52,13 @@ public class Customer
         }
     }
 
+    public string Log() =>
+        $"{CustomerId}: {FullName} Email: {EmailAddress} Status: {EntityState.ToString()}";
+
     /// <summary>
     /// Validates the customer data.
     /// </summary>
-    public bool Validate()
+    public override bool Validate()
     {
         bool isValid = true;
         if (string.IsNullOrWhiteSpace(LastName)) isValid = false;

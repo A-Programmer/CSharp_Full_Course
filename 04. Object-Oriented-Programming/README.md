@@ -137,3 +137,41 @@ A static class is a class that can not be instantiated. That means there is no n
 **Extension Method:**
 
 An extension method allows us to add methods to any existing type without the source code of the type, without inheritance, without recompiling, without any changes at all to the original type.
+
+
+# Understanding Interfaces
+
+In computing, an interface is a shared boundary across which two or more separate components of a computer system exchange information/
+
+The exchange can be between software, computer hardware, peripheral devices, human and combinations of these.
+
+The boundary between the user in an application is User Interface.
+
+In web development. the boundary between a back-end that provides services and the front-end clients requesting those services is called API, or Web Application Programming Interface.
+
+And in an object-oriented application, the boundary between each class and the rest of the application is called class interface.
+
+**What is a Class Interface?**
+
+Basically, a class interface is a class with public members! It means each class you have been created has a class interface defined by its public properties and methods.
+
+In C# we can define additional interfaces for our classes. We define an interface using the interface keyword  `public interface ILoggable`
+
+Using I in the beggining of the interface name is a convention.
+
+Like a class, the interface defines a set of related properties and methods, but unlike a class, an interface does not provide any code for those properties and methods, only the signature.
+
+Any class that implements the interface provides the code for each property and method specified in the interface.
+
+```csharp
+public interface ILoggable
+{
+    string Log();
+}
+```
+
+A common metaphor for understanding interfaces is a Contract. Think of an interface as a contract that specifies the set of properties and methods that must be available on any implementing object.
+
+* interface must be public
+* No need for an access modifier on the members (because they should be public)
+* No implementation of the members would be available in the interface
