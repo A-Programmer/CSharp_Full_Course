@@ -27,7 +27,7 @@ class Program
         TimeZoneInfo sydneyTimeZone 
             = TimeZoneInfo.FindSystemTimeZoneById("E. Australia Standard Time");
         DateTime sydneyTime = TimeZoneInfo.ConvertTime(now, sydneyTimeZone);
-      
+  
         Console.WriteLine($"My local time: {now}");
         Console.WriteLine($"Sydney time: {sydneyTime}");
     }
@@ -64,3 +64,44 @@ Console.WriteLine(parsedDate);
 By using .ToString("") we can specify to show date time in which format, and for converting to ISO 8601 we can use o : `.ToString("o")`
 
 In most cases it's better to use Utc to store the date time and when we want to convert Utc to local time, there is method called `.ToLocalTime()`
+
+# Date and Time Arithmetic
+
+TimeSpan shows the time differences.
+
+We can create a time span by using TimeSpan type and specify set up it by using its constructor:
+
+```csharp
+TimeSpan timeSpan = new(60, 100, 200);
+```
+
+What will display in the screen if we type `Console.WriteLine(timeSpan.Hours);` ?
+
+We passed 60 as hours, 100 as minutes and 200 as seconds, so by running that command do we get the 60 on the screen? (60 hours + 100 minutes + 200 seconds = 2 days 13 hours 43 minutes 20 seconds, so we should get 61?)
+
+Actually, we will see 13, but how? becuase in this case we have 2 days and 13 hours more, so by calling Hours we will get the hours of this span, if we need to get days, hours, minutes, seconds we should call each of them and if we want to see total hours we should call TotalHours method.
+
+```csharp
+TimeSpan timeSpan = new(60, 100, 200);
+Console.WriteLine(timeSpan.Days); // 2
+Console.WriteLine(timeSpan.Hours); // 13
+Console.WriteLine(timeSpan.Minutes); // 43
+Console.WriteLine(timeSpan.Seconds); // 20
+Console.WriteLine(timeSpan.TotalHours); // 61.72222222222222
+```
+
+TimSpan automatically calculates the correct amount of days, hours, minutes, seconds, milliseconds and ticks based on the data its being created with.
+
+TimeSpan allows us to get the representations as different things such as days, hours, minutes, seconds and milliseconds. So that is extremely powerful. Now the reason that we have TimeSpan is because we need a way for us to represent an interval of a time, especially when we are comparing two dates to each other.
+
+By creating Calendar object we can access to a lot of methods to work with weeks and week days and some other information about dates:
+
+```csharp
+static Calendar calendar = CultureInfo.InvariantCulture.Calendar;
+```
+
+Also, if we need to work with ISO 8601 we can use ISOWeek:
+
+```csharp
+Console.WriteLine(ISOWeek.GetWeekOfYear(DateTime.UtcNow));
+```
