@@ -63,3 +63,18 @@ C# 8.0 allows private, protected, internal, public, virtual, abstract, sealed, s
 4. A class or a struct can implement one or more interfaces implicitly or explicitly. Use public modifier when implementing interface implicitly, whereas don't use it in case of explicit implementation.
 5. Implement interface explicitly using `InterfaceName.MemberName`.
 6. An interface can inherit one or more interfaces.
+
+**What is Explicit Interface Implementation and when is it used?**
+
+Explicitly telling the compiler that a particular member belongs to that particular interface is called Explicit interface implementation. 
+If a class implements from more than one interface that has methods with the same signature then the call to such a method will implement the same method and not the interface-specific methods. This will defeat the whole purpose of using different Interfaces. That is when Explicit implementation comes into the picture. Using explicit implementation you can tell the compiler which interface’s method you are Overloading and can provide different functionalities for methods of different interfaces. The same is the case for any other type of member like a property, event.
+
+```csharp
+class ClassName : InterfaceName
+{
+    returnType InterfaceName.method()
+    { 
+          // Your Code 
+    }
+}
+```
