@@ -77,4 +77,12 @@ class ClassName : InterfaceName
           // Your Code 
     }
 }
-```
+```  
+## Where we use interfaces  
+* Dependency Injection  
+* Design Patterns  
+  * Repository  
+  * Factory method  
+  * Decorator  
+* Mocking  
+
