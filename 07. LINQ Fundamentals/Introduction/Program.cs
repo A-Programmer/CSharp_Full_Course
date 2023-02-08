@@ -7,6 +7,19 @@ class Program
         // If you are using windows the path should be something like: c:\Winsows
         string path = "/Users/sadin/Desktop";
         ShowLargestFilesWithoutLinq(path);
+        Console.WriteLine("********************");
+        ShowLargestFilesWithLinq(path);
+    }
+
+    private static void ShowLargestFilesWithLinq(string path)
+    {
+        var query = from file in new DirectoryInfo(path).GetFiles()
+            orderby file.Length descending
+            select file;
+        foreach (FileInfo file in query.Take(5))
+        {
+            Console.WriteLine($"{file.Name, -40} : {file.Length, 10:N0}");
+        }
     }
 
     private static void ShowLargestFilesWithoutLinq(string path)
