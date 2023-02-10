@@ -11,17 +11,6 @@ class Program
         ShowLargestFilesWithLinq(path);
     }
 
-    private static void ShowLargestFilesWithLinq(string path)
-    {
-        var query = from file in new DirectoryInfo(path).GetFiles()
-            orderby file.Length descending
-            select file;
-        foreach (FileInfo file in query.Take(5))
-        {
-            Console.WriteLine($"{file.Name, -40} : {file.Length, 10:N0}");
-        }
-    }
-
     private static void ShowLargestFilesWithoutLinq(string path)
     {
         DirectoryInfo directory = new(path);
@@ -31,6 +20,17 @@ class Program
         for (int i = 0; i < 5; i++)
         {
             FileInfo file = files[i];
+            Console.WriteLine($"{file.Name, -40} : {file.Length, 10:N0}");
+        }
+    }
+
+    private static void ShowLargestFilesWithLinq(string path)
+    {
+        var query = from file in new DirectoryInfo(path).GetFiles()
+            orderby file.Length descending
+            select file;
+        foreach (FileInfo file in query.Take(5))
+        {
             Console.WriteLine($"{file.Name, -40} : {file.Length, 10:N0}");
         }
     }
