@@ -5,4 +5,10 @@
 - IEnumerable and IEnumerator
 - Func<T,T> and Action<T>
 - .Count() .OrderBy() .ToList() .Where()
-- 
+- Ordering
+- Quantifiers (Any, All, Contains)
+- SelectMany => A collection of collections
+- Group, Aggregate, Join, GroupJoin
+- XDocument, XElement, XAttibute, XNamespace, XPath, Load, Read
+- When query is IEnumerable it will translate to SQL Query and runs on DataSource
+- When query is IQueryable it will not translate to SQL query, it will query the data in the memory.
