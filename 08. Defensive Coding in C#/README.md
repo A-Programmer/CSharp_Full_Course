@@ -28,3 +28,16 @@ Defensive programming is an approach to improve software and source code, in ter
 - Guard Clauses
 - Minimize Number of Parameters
 - Consistent Parameter Ordering
+
+**Automated Code Tests**
+- Structured
+- Self-documented
+- Automated
+- Repeatable
+- TARDS (Time and Relative Dimension in Space)
+
+- AAA for Testing
+  - Arrange
+  - Act
+  - Asser
+

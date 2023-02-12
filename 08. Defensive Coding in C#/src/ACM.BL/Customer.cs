@@ -14,7 +14,7 @@ public class Customer
         if(todaysSteps <= 0)
             throw new ArgumentException("Today Goal value should be greater that 0", nameof(todaysSteps));
         
-        return todaysSteps / stepGoal * 100;
+        return Math.Round(todaysSteps / stepGoal * 100, 2);
     }
 
     public void ValidayeEmail()
