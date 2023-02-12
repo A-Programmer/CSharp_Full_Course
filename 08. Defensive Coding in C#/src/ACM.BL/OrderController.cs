@@ -30,7 +30,7 @@ public class OrderController
 
         inventoryRepository.OrderItems(order, allowSplitOrders);
 
-        payment.Process();
+        payment.ProcessPayment();
 
         if (emailReceipt)
         {

@@ -41,3 +41,9 @@ Defensive programming is an approach to improve software and source code, in ter
   - Act
   - Asser
 
+**Key Considerations**
+- Best Practices
+- Clarity of Intent
+- Predictability
+
+**Use as for casting instead of blind cast**
