@@ -34,11 +34,14 @@ public class OrderController
 
         if (emailReceipt)
         {
-            customer.ValidayeEmail();
-            customerRepository.Update();
+            OperationResult result = customer.ValidayeEmail();
+            if (result.Success)
+            {
+                customerRepository.Update();
 
-            emailLibrary.SendEmail(customer.EmailAddress,
-                                    "Here is your receipt");
+                emailLibrary.SendEmail(customer.EmailAddress,
+                                        "Here is your receipt");
+            }
         }
 
     }

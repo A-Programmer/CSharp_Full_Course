@@ -17,8 +17,15 @@ public class Customer
         return Math.Round(todaysSteps / stepGoal * 100, 2);
     }
 
-    public void ValidayeEmail()
+    public OperationResult ValidayeEmail()
     {
-        throw new NotImplementedException();
+        OperationResult result = new();
+        
+        if(!string.IsNullOrWhiteSpace(this.EmailAddress))
+        {
+            result.Success = false;
+            result.AddMessage("Email address is null");
+        }
+        return result;
     }
 }
