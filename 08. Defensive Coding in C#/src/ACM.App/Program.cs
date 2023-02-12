@@ -1,4 +1,5 @@
 ﻿using ACM.BL;
+using System.Threading;
 
 namespace ACM.App;
 
@@ -6,7 +7,10 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        // PlaceOrder();
+        System.AppDomain.CurrentDomain.UnhandledException +=
+                                UnhandledExceptionTrapper;
+
+        PlaceOrder();
 
         stepsInput:
         System.Console.WriteLine("Step Goal for Today:");
@@ -39,9 +43,25 @@ public class Program
         bool emailReceipt = true;
         
         Payment payment = new();
+        try
+        {
+            OrderController orderController = new();
+            orderController.PlaceOrder(customer, order, payment,
+                            allowSplitOrders, emailReceipt);
+        }
+        catch(ArgumentException ex)
+        {
+            
+        }
 
-        OrderController orderController = new();
-        orderController.PlaceOrder(customer, order, payment, allowSplitOrders, emailReceipt);
+    }
 
+
+    private static void UnhandledExceptionTrapper(object sender,
+                                UnhandledExceptionEventArgs e)
+    {
+        System.Console.WriteLine
+            ($"There was a problem with this application, please contact support");
+        Environment.Exit(0);
     }
 }

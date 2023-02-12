@@ -9,13 +9,20 @@ public class Customer
 
     public decimal CalculatePercentOfGoalSteps(decimal stepGoal, decimal todaysSteps)
     {
-        if(stepGoal <= 0)
+        try
         {
-            throw new ArgumentException("Step Goal value should be greater that 0", nameof(stepGoal));
+            if(stepGoal <= 0)
+            {
+                throw new ArgumentException("Step Goal value should be greater that 0", nameof(stepGoal));
+            }
+            if(todaysSteps <= 0)
+            {
+                throw new ArgumentException("Today Goal value should be greater that 0", nameof(todaysSteps));
+            }
         }
-        if(todaysSteps <= 0)
+        catch(ArgumentException ex)
         {
-            throw new ArgumentException("Today Goal value should be greater that 0", nameof(todaysSteps));
+            Console.WriteLine($"Your entry was not valid: {ex.Message}");
         }
         
         return Math.Round(todaysSteps / stepGoal * 100, 2);
@@ -25,14 +32,15 @@ public class Customer
     {
         OperationResult result = new();
         
-        if(!string.IsNullOrWhiteSpace(this.EmailAddress))
+        if(string.IsNullOrWhiteSpace(this.EmailAddress))
         {
             result.Success = false;
             result.AddMessage("Email address is null");
+            throw new ArgumentException("Email address is null");
         }
         else
         {
-            // log the message
+            // Send email
         }
         return result;
     }
