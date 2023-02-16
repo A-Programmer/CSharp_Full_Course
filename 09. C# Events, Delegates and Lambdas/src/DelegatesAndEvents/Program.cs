@@ -15,6 +15,9 @@ public class Program
         // System.Console.WriteLine(finalHours);
         // DoWork(del1);
         // DoWork(del2);
+        
+        var t = new Thread(new ThreadStart(StartProcess));
+        t.Start();
 
         Worker worker = new Worker();
         worker.WorkPerformed += new EventHandler<WorkPerformedEventArgs>(worker_WorkPerformed);
@@ -47,6 +50,17 @@ public class Program
         data.ProcessFunc(2, 3, myAddFunc);
         Func<int, int, int> myMultiplyFunc = (x, y) => x * y;
         data.ProcessFunc(2, 3, myMultiplyFunc);
+
+        // data.DoTheJob();
+
+    }
+    public static void StartProcess()
+    {
+        for (int i = 0; i <= 10; i++)
+        {
+            Thread.Sleep(10);
+            System.Console.WriteLine($"{i}");
+        }
     }
 
     static void worker_WorkPerformed(object sender, WorkPerformedEventArgs e)

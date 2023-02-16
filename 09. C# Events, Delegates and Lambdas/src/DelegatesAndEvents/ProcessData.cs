@@ -2,6 +2,7 @@ namespace DelegatesAndEvents;
 
 public class ProcessData
 {
+    delegate void UpdateProgressDelegate(int val);
     public void Process(int x, int y, BizRuleDelegate del)
     {
         int result = del(x, y);
@@ -16,5 +17,23 @@ public class ProcessData
     {
         var result = func(x, y);
         System.Console.WriteLine($"Func has been processed with result: {result}");
+    }
+
+    public void DoTheJob()
+    {
+        
+        UpdateProgressDelegate progDelegate = new(StartProgress);
+        progDelegate.BeginInvoke(100, null, null);
+    }
+
+    
+
+    private static void StartProgress(int max)
+    {
+        for (int i = 0; i <= max; i++)
+        {
+            Thread.Sleep(10);
+            Console.WriteLine(i);
+        }
     }
 }
