@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{702CA676-F870-4402-ACA4-DAE157B01891}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sixeyed.Extensions.Samples", "src\Sixeyed.Extensions.Samples\Sixeyed.Extensions.Samples.csproj", "{9F735F22-596B-4791-883B-1F3E3EB8BA0A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{9D55A40E-C52A-4715-9C1C-50D316EEFA51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sixeyed.Extensions.UnitTests", "tests\Sixeyed.Extensions.UnitTests\Sixeyed.Extensions.UnitTests.csproj", "{50A5B1DD-21A0-410C-82B9-4F60E4D2FF8C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F735F22-596B-4791-883B-1F3E3EB8BA0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F735F22-596B-4791-883B-1F3E3EB8BA0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F735F22-596B-4791-883B-1F3E3EB8BA0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F735F22-596B-4791-883B-1F3E3EB8BA0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50A5B1DD-21A0-410C-82B9-4F60E4D2FF8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50A5B1DD-21A0-410C-82B9-4F60E4D2FF8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50A5B1DD-21A0-410C-82B9-4F60E4D2FF8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50A5B1DD-21A0-410C-82B9-4F60E4D2FF8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9F735F22-596B-4791-883B-1F3E3EB8BA0A} = {702CA676-F870-4402-ACA4-DAE157B01891}
+		{50A5B1DD-21A0-410C-82B9-4F60E4D2FF8C} = {9D55A40E-C52A-4715-9C1C-50D316EEFA51}
+	EndGlobalSection
+EndGlobal
