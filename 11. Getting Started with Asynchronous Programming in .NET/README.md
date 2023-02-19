@@ -86,7 +86,7 @@ In contrast, when executing asynchronously, the program doesn’t run all tasks 
 
 **Implement Asynchronous and Parallel Programming in C# .NET**  
 Both Asynchronous and Parallel Programming are not new in C# .NET. The Asynchronous Programming Model (APM) is the oldest model in .NET and has been available since version 1.0. Because it was complicated to implement, Microsoft introduced a new model in .NET 2.0: the Event-Based Asynchronous Pattern (EAP). EAP simplified things, but it wasn’t enough. So in .NET 4.0, Microsoft implemented a new model: the Task Parallel Library (TPL). The TPL is a huge improvement over the previous models. It simplifies parallel processing and makes better use of system resources. With TPL we can implement Parallel Programming in C# .NET very easy.  
-`Async` and `Await` keywords were introduced in C# 5.0 by Microsoft. When you use the “Async” keyword, you can write code the same way you wrote synchronous code. The compiler takes care of all the complexity and frees you to do what you do best: writing the logic. There are some rules for writing the Async method:  
+`async` and `await` keywords were introduced in C# 5.0 by Microsoft. When you use the “Async” keyword, you can write code the same way you wrote synchronous code. The compiler takes care of all the complexity and frees you to do what you do best: writing the logic. There are some rules for writing the Async method:  
 - The method signature must have the `async` keyword.
 - The method name should end with Async (this is not enforced, but it is a best practice).
 - The method should return `Task`, `Task<T>`, or `void`.  
@@ -102,4 +102,187 @@ Misusing parallel principles in ASP.NET can cause bad performance for all users.
 To have interaction with shared variables we can use threadsafe variables, like `ConcurrentBag<T>`  
 
 **Lock with caution, or else you might end up deadlocking.**  
+
+Always introducing async and await is a safe way to know that the operation is awaited and potentional problems raised back to the called.  
+
+**Asynchronous Programming**  
+Asynchronous programming is a form of parallel programming where a set of statements run independently of the main programming flow.  
+
+We use asynchronous programming when we have a blocking operation in the program and we want to continue with the execution of the program without waiting for the result. This allows us to implement tasks that can run at the same time.  
+
+In C#, asynchronous programming is achieved through the use of the async and await keywords.  
+
+**Multithreading**  
+In computer science, a thread is a single continuous flow of control within a program. Multithreading is a technique where the processor uses multiple threads to execute multiple processes concurrently.  
+
+We mainly use multithreading when we want to maximize the multi-core processors to have multiple workers working independently.  
+
+In C#, the System.Threading namespace contains multiple classes and interfaces for achieving multithreading in the application.  
+
+**Asynchronous Programming vs Multithreading**
+It is a general misconception that both asynchronous programming and multithreading are the same although that’s not true. Asynchronous programming is about the asynchronous sequence of Tasks, while multithreading is about multiple threads running in parallel.  
+
+Multithreading is a way of asynchrony in programming but we can also have single-threaded asynchronous tasks.  
+
+The best way to see the difference is with an example.  
+
+**Async Code Example**  
+Let’s see multiple asynchronous operations in action:  
+
+```csharp
+public static async Task FirstAsync()
+{
+    Console.WriteLine("First Async Method on Thread with Id: " + Thread.CurrentThread.ManagedThreadId);
+    await Task.Delay(1000);
+    Console.WriteLine("First Async Method Continuation on Thread with Id: " + Thread.CurrentThread.ManagedThreadId);
+}
+public static async Task SecondAsync()
+{
+    Console.WriteLine("Second Async Method on Thread with Id: " + Thread.CurrentThread.ManagedThreadId);
+    await Task.Delay(1000);
+    Console.WriteLine("Second Async Method Continuation on Thread with Id: " + Thread.CurrentThread.ManagedThreadId);
+}
+public static async Task ThirdAsync()
+{
+    Console.WriteLine("Third Async Method on Thread with Id: " + Thread.CurrentThread.ManagedThreadId);
+    await Task.Delay(1000);
+    Console.WriteLine("Third Async Method Continuation on Thread with Id: " + Thread.CurrentThread.ManagedThreadId);
+}
+```
+
+In each of these asynchronous methods, we write the thread id this method uses when starting the execution. Then, we simulate some work by adding a one-second delay, and finally, we print another message to the console.  
+
+Now, let’s add another method that will execute these methods:  
+
+```csharp
+public static async Task ExecuteAsyncFunctions()
+{
+    var firstAsync = FirstAsync();
+    var secondAsync = SecondAsync();
+    var thirdAsync = ThirdAsync();
+    await Task.WhenAll(firstAsync, secondAsync, thirdAsync);
+}
+```
+
+Finally, we are going to modify the Main method:
+```csharp
+static async Task Main(string[] args)
+{      
+    await ExecuteAsyncFunctions();
+}
+```  
+Let’s run our app and inspect the output:  
+```
+First Async Method on Thread with Id: 1
+Second Async Method on Thread with Id: 1
+Third Async Method on Thread with Id: 1
+Third Async Method Continuation on Thread with Id: 4
+Second Async Method Continuation on Thread with Id: 8
+First Async Method Continuation on Thread with Id: 11
+```
+
+We can see that all the operations are starting on the same thread with a number 1. But they are continuing their execution on different threads (4, 8, 11).  
+
+So, why is this happening?  
+
+It’s happening because once the thread hits the awaiting operation in FirstAsync, the thread is freed from that method and returned to the thread pool. Once the operation is completed and the method has to continue, a new thread is assigned to it from a thread pool. The same process is repeated for the SecondAsync and ThirdAsync as well.  
+
+**Multithreading Code Example**  
+Now let’s try to implement the same in a multithreaded environment:  
+```csharp
+public class Multithreading
+{
+    public void FirstMethod()
+    {
+        Console.WriteLine("First Method on Thread with Id: " + Thread.CurrentThread.ManagedThreadId);
+        Thread.Sleep(1000);
+        Console.WriteLine("First Method Continuation on Thread with Id: " + Thread.CurrentThread.ManagedThreadId);
+    }
+    public void SecondMethod()
+    {
+        Console.WriteLine("Second Method on Thread with Id: " + Thread.CurrentThread.ManagedThreadId);
+        Thread.Sleep(1000);
+        Console.WriteLine("Second Method Continuation on Thread with Id: " + Thread.CurrentThread.ManagedThreadId);
+    }
+    public void ThirdMethod()
+    {
+        Console.WriteLine("Third Method on Thread with Id: " + Thread.CurrentThread.ManagedThreadId);
+        Thread.Sleep(1000);
+        Console.WriteLine("Third Method Continuation on Thread with Id: " + Thread.CurrentThread.ManagedThreadId);
+    }
+}
+```
+
+Also, we need to execute these methods:  
+```csharp
+public void ExecuteMultithreading()
+{
+    Thread t1 = new Thread(new ThreadStart(FirstMethod));
+    Thread t2 = new Thread(new ThreadStart(SecondMethod));
+    Thread t3 = new Thread(new ThreadStart(ThirdMethod));
+    t1.Start();
+    t2.Start();
+    t3.Start();
+}
+```
+Finally, we have to modify the Main method:  
+```csharp
+static async Task Main(string[] args)
+{      
+    await ExecuteAsyncFunctions();
+    Console.WriteLine();
+          
+    Multithreading multithreading = new Multithreading();
+    multithreading.ExecuteMultithreading();
+}
+```
+
+Let’s see the output to clearly understand how they are different from each other:  
+```
+First Async Method on Thread with Id: 1
+Second Async Method on Thread with Id: 1
+Third Async Method on Thread with Id: 1
+Third Async Method Continuation on Thread with Id: 4
+Second Async Method Continuation on Thread with Id: 8
+First Async Method Continuation on Thread with Id: 11
+First Multithreading Method on Thread with Id: 14
+Second Multithreading Method on Thread with Id: 15
+Third Multithreading Method on Thread with Id: 16
+Second Multithreading Method Continuation on Thread with Id: 15
+First Multithreading Method Continuation on Thread with Id: 14
+Third Multithreading Method Continuation on Thread with Id: 16
+```
+
+We can clearly see the execution of multithreaded methods on different threads as expected. But also, they are keeping the same threads for the continuation compared to the async methods.  
+
+From this example, we can see the main difference – Multithreading is a programming technique for executing operations running on multiple threads (also called workers) where we use different threads and block them until the job is done. Asynchronous programming is the concurrent execution of multiple tasks (here the assigned thread is returned back to a thread pool once the await keyword is reached in the method).  
+
+**Use Cases**  
+Now that we understand the difference between multithreading and asynchronous programming, lets’s discuss the use cases for both of them.  
+
+When performing blocking operations between the methods, we should use asynchronous programming. In scenarios where we have a fixed thread pool or when we need vertical scalability in the application, we use asynchronous programming.  
+
+When we have independent functions performing independent tasks, we should use multithreading. One good example of this will be downloading multiple files from multiple tabs in a browser. Each download will run in its own thread.  
+
+Progress reporting can be complex and difficult, although `IProgress<T>` will make it easier.  
+
+The state machine is really there to keep track of the Tasks in your current asynchronous context. It's also in charge of executing the continuation and thus giving back the potentional results. It also ensures that a continuation executes on the correct context, which means that it also handles the context switching, and it's also in charge of reporting back the errors that you might be receiving inside your asynchronous operations that you're awaiting.  
+
+Compiled code of clicked event handler befor adding `async` keyword to that:  
+```csharp
+private void Search_Click(object sender, RoutedEventArgs e)
+{
+    Notes.Text = Ticker.Text;
+}
+```
+![void Clicked EventHandler](./Assets/void_clicked_event.png)  
+
+Compiled code after adding `async` keyword to the clicked event (without any other changes):   
+```csharp
+private async void Search_Click(object sender, RoutedEventArgs e)
+{
+    Notes.Text = Ticker.Text;
+}
+```
+![Async Clicked Event](./Assets/async_clicked_event.png)
 
