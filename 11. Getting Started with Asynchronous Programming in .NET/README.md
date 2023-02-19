@@ -59,3 +59,47 @@ If you are developing a Library, always use `ConfigureAwait`.
 Wrapping synchronous code in `Task.Run()` can be dangerous!  
 Make sure there is no blocking code.  
 
+**Parallel programming** lets you break down a large problem and compute each pice independently.  
+
+**When to use Parallel Programming?**
+- CPU bound operations
+- Independent chunk of data
+
+Parallel Programming in .NET can take many forms:
+- Thread
+- Task Parallel Library
+- Parallel Extensions
+- Parallel LINQ
+
+Both **Asynchronous** and **Parallel** Programming enable us to finish our tasks faster.  
+**Parallel Programming** in very simple terms, it is the use of multicore processors (even multiple machines) to execute a task. This type of programming takes a task, breaks it down into a series of smaller ones, delivers instructions, and processors execute the solutions at the same time  
+![Parallel Programming](./Assets/parallel.gif)
+
+With **Synchronous** your application will run all tasks in sequence. In other words, you fire the execution of each task and then wait until it finishes before firing the next one.  
+![Synchronous](./Assets/sync.webp)
+As a result, applying Synchronous might stop the user interface (UI) thread.  
+
+In contrast, when executing asynchronously, the program doesn’t run all tasks in sequence: it fires the tasks and then waits for their end.  
+![Asynchronous](./Assets/async.webp)
+
+**Asynchronous** eliminates disadvantages of Synchronous. It won’t hang the UI thread (because it can run as a background task), and it can use all the cores in your machine and make better use of machine resources.  
+
+**Implement Asynchronous and Parallel Programming in C# .NET**  
+Both Asynchronous and Parallel Programming are not new in C# .NET. The Asynchronous Programming Model (APM) is the oldest model in .NET and has been available since version 1.0. Because it was complicated to implement, Microsoft introduced a new model in .NET 2.0: the Event-Based Asynchronous Pattern (EAP). EAP simplified things, but it wasn’t enough. So in .NET 4.0, Microsoft implemented a new model: the Task Parallel Library (TPL). The TPL is a huge improvement over the previous models. It simplifies parallel processing and makes better use of system resources. With TPL we can implement Parallel Programming in C# .NET very easy.  
+`Async` and `Await` keywords were introduced in C# 5.0 by Microsoft. When you use the “Async” keyword, you can write code the same way you wrote synchronous code. The compiler takes care of all the complexity and frees you to do what you do best: writing the logic. There are some rules for writing the Async method:  
+- The method signature must have the `async` keyword.
+- The method name should end with Async (this is not enforced, but it is a best practice).
+- The method should return `Task`, `Task<T>`, or `void`.  
+
+To use this method, you should wait for the result (i.e., use the `await` method). Following these guidelines, when the compiler finds an await method, it starts to execute it and will continue the execution of other tasks. When the method is complete, the execution returns to its caller.  
+
+In asynchronous programming we can schedule a continuation but in parallel we can not.  
+
+Calling Parallel will lock the UI thread unless wrapping with `Task.Run()`.  
+
+Misusing parallel principles in ASP.NET can cause bad performance for all users.  
+
+To have interaction with shared variables we can use threadsafe variables, like `ConcurrentBag<T>`  
+
+**Lock with caution, or else you might end up deadlocking.**  
+
