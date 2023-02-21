@@ -5,64 +5,121 @@ namespace GameEngine.Tests;
 [TestClass]
 public class PlayerCharacterShould
 {
+    PlayerCharacter sut;
+    [TestInitialize]
+    public void TestInitialize()
+    {
+        sut = new()
+        {
+            FirstName = "Kamran",
+            LastName = "Sadin"
+        };
+    }
     [TestMethod]
+    [PlayerDefaults]
     public void BeInexperiencedWhenNew()
     {
-        PlayerCharacter sut = new();
-
         Assert.IsTrue(sut.IsNoob);
     }
 
     [TestMethod]
+    [PlayerDefaults]
+    // [Ignore]
     public void NotHaveNickNameByDefault()
     {
-        var sut = new PlayerCharacter();
-
         Assert.IsNull(sut.NickName);
     }
 
     [TestMethod]
+    [PlayerDefaults]
+    // [Ignore("Ignored for refactoring")]
     public void StartWithDefaultHealth()
     {
-        var sut = new PlayerCharacter();
-
         Assert.AreEqual(100, sut.Health);
     }
 
-    [TestMethod]
-    public void TakeDamage()
+    public static IEnumerable<object[]> Damages
     {
-        var sut = new PlayerCharacter();
-        sut.TakeDamage(1);
+        get
+        {
+            return new List<object[]>
+            {
+                new object[] { 1, 99 },
+                new object[] { 0, 100 },
+                new object[] { 100, 1 },
+                new object[] { 101, 1 },
+                new object[] { 50, 50 },
+                new object[] { 40, 60 }
+            };
+        }
+    }
+    public static IEnumerable<object[]> GetDamages()
+    {
+        return new List<object[]>
+        {
+            new object[] { 1, 99 },
+            new object[] { 0, 100 },
+            new object[] { 100, 1 },
+            new object[] { 101, 1 },
+            new object[] { 50, 50 },
+            new object[] { 10, 90 }
+        };
+    }
 
-        Assert.AreEqual(99, sut.Health);
+    [DataTestMethod]
+    // [DataRow(1, 99)]
+    // [DataRow(0, 100)]
+    // [DataRow(100, 1)]
+    // [DataRow(101, 1)]
+    // [DataRow(50, 50)]
+    // [DynamicData(nameof(Damages))]
+    // [DynamicData(nameof(GetDamages), DynamicDataSourceType.Method)]
+    // [DynamicData(nameof(DamageData.GetDamages),
+    //             typeof(DamageData),
+    //             DynamicDataSourceType.Method)]
+    // [DynamicData(nameof(ExtenralHealthDamageTestData.TestData),
+    //             typeof(ExtenralHealthDamageTestData))]
+    [CsvDataSource("Damage.csv")]
+    [TestCategory("Player Health")]
+    public void TakeDamage(int damage, int expectedHealth)
+    {
+        sut.TakeDamage(damage);
+
+        Assert.AreEqual(expectedHealth, sut.Health);
     }
 
     [TestMethod]
+    [TestCategory("Player Health")]
     public void TakeDamage_NotEqual()
     {
-        var sut = new PlayerCharacter();
         sut.TakeDamage(1);
 
         Assert.AreNotEqual(100, sut.Health);
     }
 
     [TestMethod]
+    [TestCategory("Player Health")]
+    public void TakeDamage_50()
+    {
+        sut.TakeDamage(50);
+
+        Assert.AreEqual(50, sut.Health);
+    }
+
+    [TestMethod]
+    [TestCategory("Player Health")]
+    [TestCategory("Another Category")]
     public void IncreaseHealthAfterSkleeping()
     {
-        var sut = new PlayerCharacter();
         sut.Sleep();
 
-        Assert.IsTrue(sut.Health >= 101 && sut.Health < 200);
+        // Assert.IsTrue(sut.Health >= 101 && sut.Health < 200);
+        Assert.That.IsInRange(sut.Health, 101, 200);
     }
 
     [TestMethod]
     public void CalculateFullName()
     {
-        var sut = new PlayerCharacter();
-        sut.FirstName = "Kamran";
-        sut.LastName = "Sadin";
-
         // Assert.AreEqual("Kamran Sadin", sut.FullName);
         Assert.AreEqual("KAMRAN Sadin", sut.FullName, true);
     }
@@ -70,10 +127,6 @@ public class PlayerCharacterShould
     [TestMethod]
     public void HaveFullNameStartingWithFirstName()
     {
-        var sut = new PlayerCharacter();
-        sut.FirstName = "Kamran";
-        sut.LastName = "Sadin";
-
         // Assert.IsTrue(sut.FullName.StartsWith("Kamran"));
         StringAssert.StartsWith(sut.FullName, "Kamran");
     }
@@ -81,10 +134,6 @@ public class PlayerCharacterShould
     [TestMethod]
     public void HaveFullNameEndsWithLastName()
     {
-        var sut = new PlayerCharacter();
-        sut.FirstName = "Kamran";
-        sut.LastName = "Sadin";
-
         // Assert.IsTrue(sut.FullName.StartsWith("Kamran"));
         StringAssert.EndsWith(sut.FullName, "Sadin");
     }
@@ -92,10 +141,6 @@ public class PlayerCharacterShould
     [TestMethod]
     public void CalculateFullName_SubstringAssertExample()
     {
-        var sut = new PlayerCharacter();
-        sut.FirstName = "Kamran";
-        sut.LastName = "Sadin";
-
         // Assert.IsTrue(sut.FullName.StartsWith("Kamran"));
         StringAssert.Contains(sut.FullName, "an Sa");
     }
@@ -103,34 +148,24 @@ public class PlayerCharacterShould
     [TestMethod]
     public void CalculateFullNameWithTitleCase()
     {
-        var sut = new PlayerCharacter();
-        sut.FirstName = "Kamran";
-        sut.LastName = "Sadin";
-
         StringAssert.Matches(sut.FullName, new Regex("[A-Z]{1}[a-z]+ [A-Z]{1}[a-z]+"));
     }
 
     [TestMethod]
     public void HaveALongBow()
     {
-        var sut = new PlayerCharacter();
-        
         CollectionAssert.Contains(sut.Weapons, "Long Bow");
     }
 
     [TestMethod]
     public void NotHaveStaffOfWonder()
     {
-        var sut = new PlayerCharacter();
-        
         CollectionAssert.DoesNotContain(sut.Weapons, "Staff Of Wonder");
     }
 
     [TestMethod]
     public void HaveAllExpectedWeapons()
     {
-        var sut = new PlayerCharacter();
-
         var expectedWeapons = new[]
         {
             "Long Bow",
@@ -144,8 +179,6 @@ public class PlayerCharacterShould
     [TestMethod]
     public void HaveAllExpectedWeapons_AnyOrder()
     {
-        var sut = new PlayerCharacter();
-
         var expectedWeapons = new[]
         {
             "Short Sword",
@@ -159,8 +192,6 @@ public class PlayerCharacterShould
     [TestMethod]
     public void HaveDuplicateWeapons()
     {
-        var sut = new PlayerCharacter();
-
         // sut.Weapons.Add("Short Bow");
 
         CollectionAssert.AllItemsAreUnique(sut.Weapons);
@@ -169,16 +200,25 @@ public class PlayerCharacterShould
     [TestMethod]
     public void HaveAtLeastOneKindOfSword()
     {
-        var sut = new PlayerCharacter();
-
-        Assert.IsTrue(sut.Weapons.Any(weapon => weapon.Contains("Sword")));
+        // Assert.IsTrue(sut.Weapons.Any(weapon => weapon.Contains("Sword")));
+        CollectionAssert.That.AtLeastOneItemSatisfies(sut.Weapons,
+                                                    weapon => weapon.Contains("Sword"));
     }
 
     [TestMethod]
     public void HaveNotEmptyDefaultWeapons()
     {
-        var sut = new PlayerCharacter();
+        // Assert.IsFalse(sut.Weapons.Any(weapon => string.IsNullOrWhiteSpace(weapon)));
+        // CollectionAssert.That.AllItemsNotNullOrWhitespace(sut.Weapons);
 
-        Assert.IsFalse(sut.Weapons.Any(weapon => string.IsNullOrWhiteSpace(weapon)));
+        // CollectionAssert.That.AllItemsSatisfy(sut.Weapons,
+        //                                 weapon => !string.IsNullOrWhiteSpace(weapon));
+
+        CollectionAssert.That.All(sut.Weapons, weapon =>
+        {
+            StringAssert.That.NotNullOrWhitespace(weapon);
+            Assert.IsTrue(weapon.Length > 5);
+            // etc.
+        });
     }
 }
