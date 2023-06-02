@@ -30,15 +30,15 @@ So you can find all sessions on my [Youtube channel](https://www.youtube.com/wat
    * Creating Collections of Collections
    * Taking Collections Further
 3. **Working with Nulls in C#**
-4. **Object Oriented Programming**
-5. **Dates and Times in .NET**
-6. **Interfaces**
-7. **LINQ Fundamentals**
-8. **Defensive Coding in C#**
-9. **C# Events, Delegates and Lambdas**
-10. **C# Extension Methods**
-11. **Getting Started with Asynchronous Programming in .NET**
-12. **Automated Testing with MSTest V2**
-13. **Getting Started with Dependency Injection in C#**
-14. **Concurrent Collection**
+4. **[Object Oriented Programming](/04.%20Object-Oriented-Programming/README.md)**
+5. **[Dates and Times in .NET](/05.%20Dates%20and%20Times%20in%20dotNET/README.md)**
+6. **[Interfaces](/06.%20Interfaces/README.md)**
+7. **[LINQ Fundamentals](/07.%20LINQ%20Fundamentals/README.md)**
+8. **[Defensive Coding in C#](/08.%20Defensive%20Coding%20in%20C%23/README.md)**
+9. **[C# Events, Delegates and Lambdas](/09.%20C%23%20Events%2C%20Delegates%20and%20Lambdas/README.md)**
+10. **[C# Extension Methods](/10.%20C%23%20Extension%20Methods/README.md)**
+11. **[Getting Started with Asynchronous Programming in .NET](/11.%20Getting%20Started%20with%20Asynchronous%20Programming%20in%20.NET/README.md)**
+12. **[Automated Testing with MSTest V2](/12.Automated%20Testing%20with%20MSTest%20V2/README.md)**
+13. **[Getting Started with Dependency Injection in C#](/13.%20Getting%20Started%20with%20Dependency%20Injection%20in%20.NET/README.md)**
+14. **[Concurrent Collection](/14.%20C%23%20Concurrent%20Collections/README.md)**
 15. **Tips and Traps**
